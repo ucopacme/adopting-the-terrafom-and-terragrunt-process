@@ -1,0 +1,1 @@
+# adopting-the-terrafom-and-terragrunt-process

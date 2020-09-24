@@ -187,4 +187,4 @@ Destroy cancelled.
 
 let's do an example deployment:
 
-go here: * [Example Deployment](TF-examp-deployment.md)
+go here: * [Example Deployment](2-TF-examp-deployment.md)

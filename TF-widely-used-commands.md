@@ -187,4 +187,4 @@ Destroy cancelled.
 
 let's do an example deployment:
 
-go here: * [Example Deployment](terraform-example-deployment.md)
+go here: * [Example Deployment](TF-examp-deployment.md)

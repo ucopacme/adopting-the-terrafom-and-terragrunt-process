@@ -1,11 +1,11 @@
-## Implimenting terragrunt code accross all support CloudHosting AWS accounts.
+# Implimenting terragrunt code accross all support CloudHosting AWS accounts.
 
 The pieces in play are as followed:
 
 
 
 
-# 1) Ensure the link to your code is already located in the 'accounts.ts' file.
+## 1) Ensure the link to your code is already located in the 'accounts.ts' file.
 
 The accounts.ts file is located here:
 
@@ -23,7 +23,7 @@ grep 'cloudwatch' accounts.ts
       'list of links to create, comma delimited list with no spaces, "cloudwatch/rules/local-iam/terragrunt.hcl,cloudwatch/rules/root-access/terragrunt.hcl"'
 ```
 
-# 2) what does this link actually do?
+## 2) what does this link actually do?
 
 Example: let's looks at choice: cloudwatch/rules/local-iam/terragrunt.hcl
 
@@ -46,10 +46,10 @@ If you make a change to : links/cloudwatch/rules/local-iam/terragrunt.hcl and th
 If you intend to setup a new piece of code.
 
 
-## The walk-thru:
+# The walk-thru:
 
 
-# 3) Ensure all the accounts you require to run your code  in exist in the master branch, if not create any missing accounts.
+## 3) Ensure all the accounts you require to run your code  in exist in the master branch, if not create any missing accounts.
 
 This is how you create any missing accounts:
 
@@ -116,10 +116,10 @@ you now see your terragrunt file..you are ready to run it.
 ## Blasting your code to more than one account:
 
 - Run the following command:
-NOTE: if you use the -a (it takes regex expressions, so for account 'myaccount', I could of put 'mya' and it would of cought it.
-NOTE: you can use the -o option if you want to install your code on a particular owners accounts. it too takes regex expression, EG: 'weis' will pick up weisbrods accounts.
-NOTE: you must change the -l, -r, -a , -o parameters to what you require.
-NOTE: you must also change what what terragrunt does, an (init, plan, apply -auto-approve) 
+- NOTE: if you use the -a (it takes regex expressions, so for account 'myaccount', I could of put 'mya' and it would of cought it.
+- NOTE: you can use the -o option if you want to install your code on a particular owners accounts. it too takes regex expression, EG: 'weis' will pick up weisbrods accounts.
+- NOTE: you must change the -l, -r, -a , -o parameters to what you require.
+- NOTE: you must also change what what terragrunt does, an (init, plan, apply -auto-approve) 
 ```
 for i in `node bin/util/build/src/accounts.js  -l lambda/check-user/terragrunt.hcl -a myaccount  -r us-west-2 | jq -r '.[].name'` 
 do

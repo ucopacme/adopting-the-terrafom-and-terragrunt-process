@@ -1,4 +1,4 @@
-# Implimenting terragrunt code accross all support CloudHosting AWS accounts.
+# Implementing terragrunt code accross all supported CloudHosting AWS accounts.
 
 The pieces in play are as followed:
 
@@ -35,7 +35,7 @@ common_vars.json its-bigri-prod   its-fdw-prod     its-ldc          its-redline-
 ─➤  ls links/cloudwatch/rules/local-iam/terragrunt.hcl
 links/cloudwatch/rules/local-iam/terragrunt.hcl
 ```
-The above link is a hard link to the terragrunt file needed to install the lambda function 'check-user'
+The above link is a hard link to the terragrunt file needed to install the cloudwatch rule 'local-iam'
 
 
 If you make a change to : links/cloudwatch/rules/local-iam/terragrunt.hcl and then you re-run the code in any account this terragrunt code is installed it will pick up the changes.
@@ -69,7 +69,7 @@ Add your piece of code as like the following:
 
 
 
-- Run the following commands. 
+- Run the following commands to add a new account directory structure. 
 ```
 
 # Readonly - will not create

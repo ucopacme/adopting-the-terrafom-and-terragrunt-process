@@ -119,18 +119,18 @@ you now see your terragrunt file..you are ready to run it.
 - NOTE: if you use the -a (it takes regex expressions, so for account 'myaccount', I could of put 'mya' and it would of cought it.
 - NOTE: you can use the -o option if you want to install your code on a particular owners accounts. it too takes regex expression, EG: 'weis' will pick up weisbrods accounts.
 - NOTE: you must change the -l, -r, -a , -o parameters to what you require.
-      1. -l = link (required)
-      2. -r = region (optional) defaults to us-west-2
-      3. -a = accounts (optional) you can use -a or -o, or both 
+   1) -l = link (required)
+   2) -r = region (optional) defaults to us-west-2
+   3) -a = accounts (optional) you can use -a or -o, or both 
              a. NOTE: Since it is a regex input. if you put ( -a seg ), the command would catch **ALL** accounts starting with seg. eg: seg-log,seg-dns,seg-conf,seg-auth
-      4. -o = owners (optional) you can use -a or -o, or both 
+   4) -o = owners (optional) you can use -a or -o, or both 
              a. NOTE: Since it is a regex input, if you put (-o weis), the command would catch **EVERY** account Marc Weisbrod owns.
 
 - NOTE: you must also change what what terragrunt does, an (init, plan, apply -auto-approve) 
 
 ## Where is the -a, -o parameter getting its information from to be able to do this REGEX?
 - The file  at the root of terragrunt, common_vars.json is the basic index of information required to do many operations. It is broken down by types within the json file
-   1) **aacounts** is where it pulls the information about the accounts and/or owners depending on which you chose to use.. maybe both.
+   1) **accounts** is where it pulls the information about the accounts and/or owners depending on which you chose to use.. maybe both.
 
 ```
 for i in `node bin/util/build/src/accounts.js  -l lambda/check-user/terragrunt.hcl -a myaccount  -r us-west-2 | jq -r '.[].name'` 
